@@ -1,0 +1,4 @@
+<h3>Ensemble bohème beige et marron</h3>
+                                <p>Prix : 1000 €</p>
+                                <br>
+                                <p>Tailles disponibles : 1; 2; 3</p>
