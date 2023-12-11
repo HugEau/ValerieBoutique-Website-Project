@@ -10,375 +10,117 @@
         <meta name="robots" content="index,follow">
         <link rel="icon" href="ValérieLogo.png" data-cmp-info="9">
         <link rel="stylesheet" href="style/style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com"> 
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-        <script>
-            function lowerWidth() {
-                var menus = document.getElementsByClassName("menu");
-                for (var i = 0; i < menus.length; i++) {
-                menus[i].className = "tinyMenu";
-                }
-                var menus = document.getElementsByClassName("bigNav");
-                for (var i = 0; i < menus.length; i++) {
-                menus[i].className = "tinyNav";
-                }
-                
-                // Change the class name of nav1sel to nav1selTiny
-                var nav1selElement = document.querySelector(".nav1sel");
-                if (nav1selElement) {
-                    nav1selElement.className = "nav1selTiny";
-                }
- 
-                var nav2selElement = document.querySelector(".nav2sel");
-                if (nav2selElement) {
-                    nav2selElement.className = "nav2selTiny";
-                }
- 
-                var nav3selElement = document.querySelector(".nav3sel");
-                if (nav3selElement) {
-                    nav3selElement.className = "nav3selTiny";
-                }
- 
-                var nav4selElement = document.querySelector(".nav4sel");
-                if (nav4selElement) {
-                    nav4selElement.className = "nav4selTiny";
-                }
- 
-                var nav5selElement = document.querySelector(".nav5sel");
-                if (nav5selElement) {
-                    nav5selElement.className = "nav5selTiny";
-                }
- 
-                var nav6selElement = document.querySelector(".nav6sel");
-                if (nav6selElement) {
-                    nav6selElement.className = "nav6selTiny";
-                }
-                
-                var nav1Element = document.querySelector(".nav1");
-                if (nav1Element) {
-                    nav1Element.className = "nav1Tiny";
-                }
-                
-                var nav2Element = document.querySelector(".nav2");
-                if (nav2Element) {
-                    nav2Element.className = "nav2Tiny";
-                }
-                
-                var nav3Element = document.querySelector(".nav3");
-                if (nav3Element) {
-                    nav3Element.className = "nav3Tiny";
-                }
-                
-                var nav4Element = document.querySelector(".nav4");
-                if (nav4Element) {
-                    nav4Element.className = "nav4Tiny";
-                }
-                
-                var nav5Element = document.querySelector(".nav5");
-                if (nav5Element) {
-                    nav5Element.className = "nav5Tiny";
-                }
-                
-                var nav6Element = document.querySelector(".nav6");
-                if (nav6Element) {
-                    nav6Element.className = "nav6Tiny";
-                }
-                var presentationtexte = document.querySelector(".presentation-texte");
-                if (presentationtexte) {
-                    presentationtexte.className = "presentation-texteTiny";
-                }
-                var descriptiontext = document.querySelector(".description-text");
-                if (descriptiontext) {
-                    descriptiontext.className = "description-texthidden";
-                }
-                var adresseHonfleur = document.querySelector(".adresse-honfleur");
-                if (adresseHonfleur) {
-                    adresseHonfleur.className = "adresse-honfleurTiny";
-                }
-                var horaire = document.querySelector(".social");
-                if (horaire) {
-                    horaire.className = "socialTiny";
-                }
-            }
-    
-            function biggerWidth() {
-                var tinyMenus = document.getElementsByClassName("tinyMenu");
-                for (var i = 0; i < tinyMenus.length; i++) {
-                tinyMenus[i].className = "menu";
-                }
-                var menus = document.getElementsByClassName("tinyNav");
-                for (var i = 0; i < menus.length; i++) {
-                menus[i].className = "bigNav";
-                }
-                
-                // Change the class name of nav1selTiny back to nav1sel
-                var nav1selTinyElement = document.querySelector(".nav1selTiny");
-                if (nav1selTinyElement) {
-                    nav1selTinyElement.className = "nav1sel";
-                }
-
-                var nav2selTinyElement = document.querySelector(".nav2selTiny");
-                if (nav2selTinyElement) {
-                    nav2selTinyElement.className = "nav2sel";
-                }
-
-                var nav3selTinyElement = document.querySelector(".nav3selTiny");
-                if (nav3selTinyElement) {
-                    nav3selTinyElement.className = "nav3sel";
-                }
-
-                var nav4selTinyElement = document.querySelector(".nav4selTiny");
-                if (nav4selTinyElement) {
-                    nav4selTinyElement.className = "nav4sel";
-                }
-
-                var nav5selTinyElement = document.querySelector(".nav5selTiny");
-                if (nav5selTinyElement) {
-                    nav5selTinyElement.className = "nav5sel";
-                }
-
-                var nav6selTinyElement = document.querySelector(".nav6selTiny");
-                if (nav6selTinyElement) {
-                    nav6selTinyElement.className = "nav6sel";
-                }
-
-                var nav1TinyElement = document.querySelector(".nav1Tiny");
-                if (nav1TinyElement) {
-                    nav1TinyElement.className = "nav1";
-                }
-
-                var nav2TinyElement = document.querySelector(".nav2Tiny");
-                if (nav2TinyElement) {
-                    nav2TinyElement.className = "nav2";
-                }
-
-                var nav3TinyElement = document.querySelector(".nav3Tiny");
-                if (nav3TinyElement) {
-                    nav3TinyElement.className = "nav3";
-                }
-
-                var nav4TinyElement = document.querySelector(".nav4Tiny");
-                if (nav4TinyElement) {
-                    nav4TinyElement.className = "nav4";
-                }
-
-                var nav5TinyElement = document.querySelector(".nav5Tiny");
-                if (nav5TinyElement) {
-                    nav5TinyElement.className = "nav5";
-                }
-
-                var nav6TinyElement = document.querySelector(".nav6Tiny");
-                if (nav6TinyElement) {
-                    nav6TinyElement.className = "nav6";
-                }
-                var presentationtexteTiny = document.querySelector(".presentation-texteTiny");
-                if (presentationtexteTiny) {
-                    presentationtexteTiny.className = "presentation-texte";
-                }
-                var descriptionTextHidden = document.querySelector(".description-texthidden");
-                if (descriptionTextHidden) {
-                    descriptionTextHidden.className = "description-text";
-                }
-                var adresseHonfleurTiny = document.querySelector(".adresse-honfleurTiny");
-                if (adresseHonfleurTiny) {
-                    adresseHonfleurTiny.className = "adresse-honfleur";
-                }
-                var horaire = document.querySelector(".socialTiny");
-                if (horaire) {
-                    horaire.className = "social";
-                }
-            }
-            
-            function handleResize() {
-                if (window.innerWidth < 950) {
-                    lowerWidth();
-                } else {
-                    biggerWidth();
-
-                }
-            }
-
-            // Initial run of the script
-            handleResize();
-
-            // Add a window resize event listener
-            window.addEventListener("resize", handleResize);
-            
-            function dropDown() {
-                var nav = document.querySelector(".tinyNav");
-                nav.classList.toggle("show-menu");
-            }
-            function prevImage(button) {
-                const vetement = button.parentElement;
-                const folder = vetement.getAttribute('data-folder');
-                const images = vetement.getAttribute('data-images').split(',');
-                const imgElement = vetement.getElementsByTagName('img')[0];
-                const currentImage = imgElement.src.replace(window.location.origin + '/', '');
-                
-                const currentIndex = images.indexOf(currentImage);
-                const prevIndex = (currentIndex - 1 + images.length) % images.length;
-                
-                const prevImageSrc = window.location.origin + '/ValerieBoutique-Website-Project/' + folder + images[prevIndex];
-                imgElement.src = prevImageSrc;
-            }
-            
-            function nextImage(button) {
-                const vetement = button.parentElement;
-                const folder = vetement.getAttribute('data-folder');
-                const images = vetement.getAttribute('data-images').split(',');
-                const imgElement = vetement.getElementsByTagName('img')[0];
-                const currentImage = imgElement.src.replace(window.location.origin + '/', '');
-                
-                const currentIndex = images.indexOf(currentImage);
-                const nextIndex = (currentIndex + 1) % images.length;
-                
-                const nextImageSrc = window.location.origin + '/ValerieBoutique-Website-Project/' + folder + images[nextIndex];
-                imgElement.src = nextImageSrc;
-            }
-            //<---------->
-            // Fonction pour récupérer le contenu d'un fichier description.txt
-            function getDescription(folderPath) {
-                const xhr = new XMLHttpRequest();
-                xhr.open('GET', folderPath + 'description.txt', false);
-                xhr.send();
-                return xhr.responseText;
-            }
-            // Fonction pour créer une div pour chaque article
-            function createVetementDiv(folderPath, imageNames) {
-                const vetementDiv = document.createElement('div');
-                vetementDiv.classList.add('vetement');
-                vetementDiv.setAttribute('data-folder', folderPath);
-                vetementDiv.setAttribute('data-images', imageNames.join(','));
-                
-                // Créer l'image principale
-                const img = document.createElement('img');
-                img.src = folderPath + imageNames[0];
-                img.alt = 'Image 1';
-                
-               const prevBtn = document.createElement('button');
-                prevBtn.classList.add('prev-btn');
-                prevBtn.innerHTML = '<img src="arrowleft.png" alt="arrowleft" class="arrow">';
-
-                const nextBtn = document.createElement('button');
-                nextBtn.classList.add('next-btn');
-                nextBtn.innerHTML = '<img src="arrowright.png" alt="arrowright" class="arrow">';
-                
-                // Créer la div overlay
-                const overlayDiv = document.createElement('div');
-                overlayDiv.classList.add('vetement-overlay');
-                
-                // Récupérer et afficher les informations de description
-                const descriptionText = getDescription(folderPath);
-                const vetementInfoDiv = document.createElement('div');
-                vetementInfoDiv.classList.add('vetement-info');
-                vetementInfoDiv.innerHTML = descriptionText;
-                
-                // Ajouter les éléments à la div principale
-                overlayDiv.appendChild(vetementInfoDiv);
-                vetementDiv.appendChild(img);
-                vetementDiv.appendChild(prevBtn);
-                vetementDiv.appendChild(nextBtn);
-                vetementDiv.appendChild(overlayDiv);
-                
-                return vetementDiv;
-            }
-            
-            // Fonction pour créer toutes les divs
-            function createAllVetementDivs() {
-                const container = document.getElementById('containerDivVetements'); // Remplacez 'container' par l'ID de votre conteneur HTML
-                const sourceFolder = 'vetements/';
-                const numFiles = 8; // Remplacez par le nombre de fichiers "hautX" que vous avez
-      
-                for (let i = 1; i <= numFiles; i++) {
-                    const folderPath = sourceFolder + 'accueil' + i + '/';
-                    const imageNames = ['accueil1.jpg', 'accueil2.jpg', 'accueil3.jpg']; // Remplacez par les noms de vos images
-                    const vetementDiv = createVetementDiv(folderPath, imageNames);
-                    container.appendChild(vetementDiv);
-                }
-                
-                // Sélectionnez tous les boutons avec la classe prev-btn
-                const prevButtons = document.querySelectorAll('.prev-btn');
-
-                // Ajoutez un gestionnaire d'événements click à chaque bouton prev-btn
-                prevButtons.forEach(function(prevButton) {
-                    prevButton.addEventListener('click', function() {
-                        // Appelez la fonction prevImage en passant le bouton comme argument
-                        nextImage(this);
-                    });
-                });
-
-                // Sélectionnez tous les boutons avec la classe next-btn
-                const nextButtons = document.querySelectorAll('.next-btn');
-                
-                // Ajoutez un gestionnaire d'événements click à chaque bouton next-btn
-                nextButtons.forEach(function(nextButton) {
-                    nextButton.addEventListener('click', function() {
-                        // Appelez la fonction nextImage en passant le bouton comme argument
-                        prevImage(this);
-                    });
-                });
-            }
-
-            // Appeler la fonction pour créer toutes les divs lors du chargement de la page
-            window.onload = createAllVetementDivs;
-</script>
-
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Whisper&display=swap" rel="stylesheet">
+        <script src="main.js"></script>
+        <script src="https://kit.fontawesome.com/41f2ba621c.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <header class="nav" role="banner">
-            <div class="contact">
-                <img class="tel-icon" src="tel-icon.png">
-                <a class="num" href="tel:0670224978">06.70.22.49.78</a>
-                <a class="instagram-link" href="https://www.instagram.com/valerieboutiquehonfleur/"><img class="instagram-icon" src="instagram-icon.png"></a>
-                <a class="facebook-link" href="https://www.facebook.com/profile.php?id=100057356595291"><img class="facebook-icon" src="facebook-icon.png"></a>
-            </div>
             <div class="menu">
                 <a href="index.html">
                     <img class="logoheader" src="ValerieLogoIndex.png">
                 </a>
-                <button onclick="dropDown()" id="menuButton" class="tinyMenu">Menu</button>
                 <nav class="bigNav">
                     <ul>
-                        <li class="nav1sel">
+                        <li>
                             <a class="lien" href="index.html" title="Accueil">Accueil</a>
                         </li>
-                        <li class="nav2">
-                            <a class="lien" href="hauts.html" title="Liste des hauts">Hauts </a>
+                        <li>
+                            <a class="lien" href=#collection>Collection</a>
                         </li>
-                        <li class="nav3">
-                            <a class="lien" href="bas.html" title="Liste des bas">Bas</a>
-                        </li>
-                        <li class="nav4">
-                            <a class="lien" href="robes.html" title="Liste des Robes">Robes</a>
-                        </li>
-                        <li class="nav5">
-                            <a class="lien" href="accessoires.html" title="Listes des Accessoires">Accessoires</a>
-                        </li>
-                        <li class="nav6">
-                            <a class="lien" href="tailles.html" title="Descriptif des tailles">Tailles</a>
+                        <li>
+                            <a class="lien" href="#" title="Descriptif des tailles">Tailles</a>
                         </li>
                 </ul>
               </nav>
             </div>
         </header>
-        <div class="main">
-            <div class="presentation-texte">
-                <h2 style="font-weight: 900">Bienvenue chez Valérie Boutique</h2>
-                <br>
-                <h3 style="font-weight: 90">Boutique de Prêt-À-Porter de vêtements italiens<br> Spécialiste en lin et en velours</h3>
-            </div>
-            <div class="presentation-cadre">
-                <div class="conteneur">
-                    <div class="diapo"></div>
+        <main>
+            <div class="photoPres">
+                <div class="presentation-texte">
+                    <h2>Bienvenue chez Valérie Boutique</h2>
+                    <br>
+                    <h3>Boutique de prêt-à-porter de vêtements italiens<br> Spécialisée en lin et en velours</h3>
+                </div>
+                <img class="photoPresImg" src="style/devanture.png">
+                <h3>Pour toute commande, contatez-nous sur   Facebook, Instagram ou par Téléphone</h3>
+                <div class = "contactCtn">
+                    <div class="facebookCtn">
+                        <i class="fa-brands fa-square-facebook fa-xl"></i>
+                        <a href="https://www.facebook.com/profile.php?id=100057356595291">
+                            Valérie Boutique
+                        </a>
+                    </div>
+                    
+                    <div class = "numCtn">
+                        <i class="fa-solid fa-phone"></i>
+                        <a class="num" href="tel:0670224978">06.70.22.49.78</a>
+                    </div>
+                    <div class="instagramCtn">
+                        <i class="fa-brands fa-instagram fa-xl"></i>
+                        <a href="https://www.instagram.com/valerieboutiquehonfleur/">
+                            Valérie Boutique
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="nouveaux-vetements">
-                <h2 style="text-decoration: underline, overline; text-decoration-color: black;">Nouveautés</h2>
+            <div class="nouveaux-vetements" id="collection">
+                <h2 style="text-decoration: underline, overline; text-decoration-color: black;">Collection Hiver 2024</h2>
+                
+                <section class="filterBar">
+                    <article class="filterBar__filter">
+                        <button id="allButton">
+                            <p>Tous</p>
+                        </button>
+                    </article>
+                    <article class="filterBar__filter">
+                        <button id="topsButton">
+                            <p>Tops / Pulls</p>
+                        </button>
+                    </article>
+                    <article class="filterBar__filter">
+                        <button id="coatsButton">
+                            <p>Manteaux / Vestes</p>
+                        </button>
+                    </article>
+                    <article class="filterBar__filter">
+                        <button id="dressButton">
+                            <p>Robes / Tuniques</p>
+                        </button>
+                    </article>
+                    <article class="filterBar__filter">
+                        <button id="pantsButton">
+                            <p>Pantalons / Jupes</p>
+                        </button>
+                    </article>
+                    <article class="filterBar__filter">
+                        <button id="combiButton">
+                            <p>Combinaisons</p>
+                        </button>
+                    </article>
+                    <article class="filterBar__filter">
+                        <button id="hatButton">
+                            <p>Couvre-Chefs</p>
+                        </button>
+                    </article>
+                    <article class="filterBar__filter">
+                        <button id="beltButton">
+                            <p>Ceintures / Bijoux</p>
+                        </button>
+                    </article>
+                    <article class="filterBar__filter karmakiri">
+                        <button id="karmaKiriButton">
+                            <p>KarmaKiri</p>
+                        </button>
+                    </article>
+                </section>
+                
                 <div class="vetements-images" id="containerDivVetements">
                 </div>
             </div>
-        </div>
+        </main>
         <footer>
             <div class="adresse">
                 <h3 class="adresse-honfleur" style="text-decoration:underline; text-decoration-style: solid; font-weight: bold;">Adresse</h3>
@@ -386,13 +128,13 @@
             </div>
             <div class="description">
                 <h3 class="description-text" style="text-decoration: underline; text-decoration-style: solid 2px">Valérie Boutique<br></h3>
+               
                 <h5 class="description-text"><br>Grandes Tailles, Lin, Velour, Accessoires</h5>
+            </div>
+            <div class="horaire">
                 <h3 class="social" style="text-decoration:underline; text-decoration-style: solid; font-weight: bold;">Horaires</h3>
-                <h5 class="social" style="position: relative"><br>Ouvert tout les jours<br>10h - 19h </h5>
+                <h5 class="social" style="position: relative"><br>Ouvert Ve, Sa, Di<br>10h - 19h </h5>
             </div>
         </footer>
-        <script> 
-            handleResize();
-        </script>
     </body>
 </html>

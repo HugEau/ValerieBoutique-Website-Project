@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création de Fichier</title>
+    <style>
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        #imagePreview {
+            margin-top: 10px;
+            display: flex;
+        }
+
+        #imagePreview img {
+            max-width: 100px;
+            max-height: 100px;
+            margin-right: 10px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+
+</head>
+<body>
+
+    <h2>Création de Fichier</h2>
+
+    <form id="fileCreationForm">
+        <label for="index">Numéro de fichier :</label>
+        <input type="number" id="index" min="1" required>
+
+        <label for="title">Titre :</label>
+        <input type="text" id="title" required>
+
+        <label for="price">Prix (€) :</label>
+        <input type="number" id="price" required>
+
+        <label for="sizes">Tailles disponibles :</label>
+        <select id="sizes" multiple required>
+            <option value="Taille unique">Taille unique</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+
+        <label for="category">Catégorie :</label>
+        <select id="category" required>
+            <option value="1">Tops/Pull</option>
+            <option value="2">Robes/Tuniques</option>
+            <option value="3">Manteaux/Vestes</option>
+            <option value="4">Pantalons/Jupes</option>
+            <option value="5">Combinaisons</option>
+            <option value="6">Couvre-chefs</option>
+            <option value="7">Ceinture/Bijoux</option>
+            <option value="8">KarmaKiri</option>
+            <!-- Ajoutez d'autres options de catégorie selon vos besoins -->
+        </select>
+
+        <label for="images">Images (3 maximum) :</label>
+        <input type="file" id="images" accept="image/*" multiple required>
+
+        <label for="description">Description :</label>
+        <textarea id="description" rows="4" cols="50" placeholder="Entrez votre description ici"></textarea>
+
+        <button type="button" onclick="createFiles()">Créer les fichiers</button>
+
+        <div id="imagePreview"></div>
+    </form>
+
+    <script>
+        document.getElementById('images').addEventListener('change', previewImages);
+
+        function previewImages() {
+            const previewDiv = document.getElementById('imagePreview');
+            previewDiv.innerHTML = '';
+
+            const images = document.getElementById('images').files;
+
+            for (let i = 0; i < Math.min(images.length, 3); i++) {
+                const imageUrl = URL.createObjectURL(images[i]);
+                const img = document.createElement('img');
+                img.src = imageUrl;
+                previewDiv.appendChild(img);
+            }
+        }
+
+        async function createFiles() {
+            const index = document.getElementById('index').value;
+            const title = document.getElementById('title').value;
+            const price = document.getElementById('price').value;
+            const sizesSelect = document.getElementById('sizes');
+            const sizes = Array.from(sizesSelect.selectedOptions).map(option => option.value);
+            const category = document.getElementById('category').value;
+            const images = document.getElementById('images').files;
+            const description = document.getElementById('description').value;
+
+            const folderPath = `./vetements/accueil${index}`;
+
+            // Créer le dossier s'il n'existe pas
+            if (!await folderExists(folderPath)) {
+                await createFolder(folderPath);
+            }
+
+            // Créer une instance de JSZip
+            const zip = new JSZip();
+
+            // Créer le fichier category.json
+            const categoryJson = {
+                categoryNumber: parseInt(category),
+                categoryName: getCategoryName(category),
+            };
+            const categoryBlob = new Blob([JSON.stringify(categoryJson)], { type: 'application/json' });
+            zip.file('category.json', categoryBlob);
+
+            // Créer le fichier description.txt
+            const descriptionText = `
+                <h3>${title}</h3>
+                <p>Prix : ${price} €</p>
+                <br>
+                <p>Tailles disponibles : ${sizes.join(', ')}</p>
+                <br>
+                <h4>Description :</h4>
+                <br>
+                <p>${description}</p>
+            `;
+            const descriptionBlob = new Blob([descriptionText], { type: 'text/plain' });
+            zip.file('description.txt', descriptionBlob);
+
+            // Téléverser les images
+            for (let i = 0; i < Math.min(images.length, 3); i++) {
+                const imageUrl = URL.createObjectURL(images[i]);
+                const imageBlob = await fetch(imageUrl).then(res => res.blob());
+                zip.file(`accueil${i + 1}.jpg`, imageBlob);
+            }
+
+            // Générer le contenu de l'archive
+            const zipContent = await zip.generateAsync({ type: 'blob' });
+
+            // Supprimer "_vetements_accueil[object HTMLInputElement]_vetements_" du nom de l'archive zip
+            const zipFilename = `vetements_accueil${index}.zip`;
+            
+            // Télécharger l'archive
+            saveFile(zipFilename, zipContent);
+
+            alert('Fichiers créés avec succès.');
+        }
+
+        function getCategoryName(category) {
+            switch (parseInt(category)) {
+                case 1: return 'TopPulls';
+                case 2: return 'RobesTuniques';
+                case 3: return 'ManteauxVestes'
+                case 4: return 'PantalonsJupes';
+                case 5: return 'Combinaisons';
+                case 6: return 'CouvresChefs';
+                case 7: return 'CeinturesBijoux';
+                case 8: return 'KarmaKiri';
+                default: return 'Autre';
+            }
+        }
+
+        function saveFile(filename, blob) {
+            const a = document.createElement('a');
+            const fileUrl = URL.createObjectURL(blob);
+            a.href = fileUrl;
+            a.download = filename;
+
+            // Ajout du nouvel attribut pour définir le dossier de destination
+            a.setAttribute('download', `./vetements/accueil${document.getElementById('index').value}/${filename}`);
+
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+
+            // Libération de l'URL de l'objet Blob après le téléchargement
+            URL.revokeObjectURL(fileUrl);
+
+            // Actualiser la page après le téléchargement
+            location.reload();
+        }
+
+        async function folderExists(path) {
+            const response = await fetch(path, { method: 'HEAD' });
+            return response.ok;
+        }
+
+        async function createFolder(path) {
+            await fetch(path, { method: 'PUT' });
+        }
+    </script>
+
+</body>
+</html>

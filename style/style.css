@@ -1,64 +1,31 @@
-.contact {
-    background-color: #e7e7e7;
-    height: 20px;
-}
-.tel-icon {
-    left: 200px;
-    top: 3px;
-    height: 14px;
-    width: 14px;
-    position: absolute;
-}
-.num {
-    left: 220px;
-    top: 1px;
-    color: black;
-    position: absolute;
-}
-.instagram-link {
-    right: 40px;
-    top: 3px;
-    width: 15px;
-    height: 15px;
-    background-color: transparent;
-    position: absolute;
-}
-.facebook-link {
-    width: 15px;
-    top: 3px;
-    height: 15px;
-    right: 10px;
-    background-color: transparent;
-    position: absolute;
-}
-.facebook-icon {
-    width: 15px;
-    height: 15px;
-}
-.instagram-icon {
-    width: 15px;
-    height: 15px;
-}
 .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     background-color: #d5b7bc;
-    height: 100px;
+    height: 50px;
     font-family: sans-serif;
     position: relative;
 }
 .logoheader {
-    position: absolute;
-    width: 140px;
-    height: 180px;
-    bottom: -60px;
-    left: 40px;
-    opacity: 100%;
-    z-index: 1;
+    width: 30%;
+    padding: 15px
+}
+.bignav ul {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    gap : 30px;
+    padding-right: 30px;
+    font-size: 20px;
+    justify-content: flex-end;
+    align-items: center;
 }
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
-    font: 'Roboto';
+    font-family: 'Baskerville';
+    font: 'Baskervill';
 }
 body {
     background-color: #e7e7e7;
@@ -67,266 +34,162 @@ body {
 li{
     list-style-type: none;
 }
-.nav1sel {
-    position: absolute;
-    bottom: 12px;
-    right: 700px;
-    font-style: sans-serif;
-    text-decoration: underline;
-    text-decoration: bold;
-    text-decoration-color: floralwhite;
-    font-size: 18px;
-}
-.nav1 {
-    position: absolute;
-    bottom: 12px;
-    right: 700px;
-    font-style: sans-serif;
-    text-decoration: none;
-    text-decoration-color: floralwhite;
-    font-size: 18px;
-}
-.nav1:hover {
-    text-decoration: underline;
-}
-.nav2sel {
-    position: absolute;
-    bottom: 12px;
-    right: 590px;
-    font-style: sans-serif;
-    text-decoration: underline;
-    font-weight: bold;
-    text-decoration-color: floralwhite;
-    font-size: 18px;
-}
-.nav2 {
-    position: absolute;
-    bottom: 12px;
-    right: 590px;
-    font-style: sans-serif;
-    text-decoration: none;
-    text-decoration-color: floralwhite;
-    font-size: 18px;
-}
-.nav2:hover {
-    text-decoration: underline;
-}
-.nav3sel {
-    position: absolute;
-    bottom: 12px;
-    right: 490px;
-    font-style: sans-serif;
-    text-decoration: underline;
-    font-weight: bold;
-    text-decoration-color: floralwhite;
-    font-size: 18px;
-}
-.nav3 {
-    position: absolute;
-    bottom: 12px;
-    right: 490px;
-    font-style: sans-serif;
-    text-decoration-color: floralwhite;
-    font-size: 18px;
-}
-.nav3:hover {
-    text-decoration: underline;
-}
-.nav4sel {
-    position: absolute;
-    bottom: 12px;
-    right: 365px;
-    font-style: sans-serif;
-    text-decoration: underline;
-    font-weight: bold;
-    text-decoration-color: floralwhite;
-    font-size: 18px;
-}
-.nav4 {
-    position: absolute;
-    bottom: 12px;
-    right: 365px;
-    font-style: sans-serif;
-    text-decoration: none;
-    text-decoration-color: floralwhite;
-    font-size: 18px;
-}
-.nav4:hover {
-    text-decoration: underline;
-}
-.nav5sel {
-    position: absolute;
-    bottom: 12px;
-    right: 195px;
-    font-style: sans-serif;
-    font-weight: bold;
-    text-decoration: underline;
-    text-decoration-color: floralwhite;
-    font-size: 18px;
-}
-.nav5 {
-    position: absolute;
-    bottom: 12px;
-    right: 195px;
-    font-style: sans-serif;
-    text-decoration: none;
-    text-decoration-color: floralwhite;
-    font-size: 18px;
-}
-.nav5:hover {
-    text-decoration: underline;
-}
-.nav6sel {
-    position: absolute;
-    bottom: 12px;
-    right: 75px;
-    font-weight: bold;
-    font-style: sans-serif;
-    text-decoration: underline;
-    text-decoration-color: floralwhite;
-    font-size: 18px;
-}
-.nav6 {
-    position: absolute;
-    bottom: 12px;
-    right: 75px;
-    font-style: sans-serif;
-    text-decoration: none;
-    text-decoration-color: floralwhite;
-    font-size: 18px;
-}
-.nav6:hover {
-    text-decoration: underline;
-}
-a.lien:link, a.lien:visited, a.lien:active {
+.lien {
     text-decoration: none;
     font-style: sans-serif;
-    color: #FFFFF9;
-    
+    color: #FFFFF9; 
 }
-.main {
+main {
     background-color: #e7e7e7;
     max-height: auto;
     margin-bottom: 50px;
 }
-.mainTiny {
-    margin-top: 50px;
-    position: flex;
+.photoPres {
+    width: 100%;
+    height: 110%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    text-align: center;
+    font-weight: 700;
+}
+.photoPres h2 {
+    font-size: 30px;
+}
+.photoPres h3 {
+    font-weight: 400;
+}
+.photoPresImg {
+    padding: 5px;
+    background-color: #d5b7bc; 
+    height: 50%;
 }
 
-.presentation-texte {
-    text-align: center;
-    position: relative;
-    top: 25px;
+.contactCtn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 75px;
 }
-.presentation-texteTiny {
-    text-align: center;
-    position: relative;
-    top: 70px;
+.contactCtn a {
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
 }
-.presentation-cadre {
-    width: 520px;
-    height: 230px;
-    top: 40px;
-    position: relative;
-    margin: auto;
-    margin-top: 50px;
-    align-self: center;
-    left: 1px;
-    box-shadow: inset 0 0 0 40px #F4F4F4;
-    box-shadow: Ox 15px 10px -5px #e7e7e7; 
-    background-size: contain;
-    background-color: #e7e7e6;
+.instagramCtn, .facebookCtn, .numCtn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #d5b7bc;
+    color: white;
 }
-.diapo {
-    width: 100%; 
-    height: 0px; 
-    padding-top: 75%;
-    box-shadow: inset 0 0 0 40px #e7e7e7;
-    box-shadow: 0px 0px 10px #777; 
-    background-color: #EDEDED;
-    background-image: url(devanture.png);
-    background-size: cover;
-    margin: auto;
-    box-shadow: inset 0 0 0 4px #d5b7bc;
-    border: solid 2px #d5b7bc;
+.tel-icon {
+    height: 20px;
+    width: 20px;
 }
-.conteneur {
-    max-width: 520px;
-    margin: auto;
+.num {
+    color: black;
+}
+.facebook-icon {
+    width: 20px;
+    height: 20px;
+}
+.instagram-icon {
+    width: 20px;
+    height: 20px;
 }
 footer {
-    background-color: black;
-    height: 155px;
-    bottom: 0px;
-    margin-right:0px;
-    margin-left:0px;
-    position:relative;
-}
-.adresse {
-    margin: auto;
-    right: 300px;
-    top: 15px;
-    position: relative;
-    width: 150px;
-}
-.adresse-honfleur {
-    color: floralwhite;
-    text-align: center;
-}
-.description {
-    position:relative;
-    margin : auto;
-    bottom: 50px;
-    width: 300px;
-}
-.description-text {
+    background-color: #d5b7bc;
+    display: flex;
+    flex-direction: row;
+    padding: 40px;
+    font-size: 18px;
     color : floralwhite;
     text-align: center;
 }
-.social {
-    margin: 0px;
-    padding: 0px;
-    left: 325px;
-    position: relative;
-    top: -60px;
-    width: 200px;
-    text-align: center;
-    color: floralwhite;
+.adresse {
+    width: 33%;
 }
-.nouveaux-vetements {
-    text-align: center;
-    margin-top: 250px;
-    margin-bottom: 20px;
-    position: relative;
-    left: 10px;
-    }
+.description {
+    width: 33%;
+}
+.horaire {
+    width: 33%
+}
 
-.vetements-images {
+.nouveaux-vetements {
     display: flex;
-    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne suivante si nécessaire */
+    flex-direction: column;
+    align-items: center;
+    gap : 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+    }
+.filterBar {
+	width: 100%;
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+	flex-direction: row;
+	gap: 10px;
+}
+
+.filterBar__filter {
+	border: 1px solid #d5b7bc;
+	border-radius: 60px;
+	min-width: 100px;
+	height: 40px;
+	padding: 0px 11px;
+}
+
+.filterBar__filter:hover {
+	background-color: #d5b7bc;
+}
+.karmakiri p {
+    font-family: "Whisper";
+}
+.filterBar__filter p {
+	font-weight: 700;
+	font-size: 16px;
+}
+
+.filterBar__filter:hover p {
+	color: white;
+}
+
+.filterBar__filter button {
+	 background-color: inherit;
+	 border: none;
+	 width: 100%;
+	 height: 100%;
+	 cursor: pointer;
+}
+.vetements-images {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 0.25fr 0.25fr 0.25fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
     justify-content: center;
     align-items: center;
-    margin-top: 25px;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-bottom: 20px;
-    max-height: inherit;
-    max-width: inherit;
 }
 
 .vetements-images .vetement {
     position: relative;
-    margin-top: 20px;
-    margin-right: 40px; /* Espacement horizontal entre les images */
-    margin-bottom: 20px; /* Espacement vertical entre les lignes d'images */
-    
 }
 
 
 .vetements-images img {
-    height: 350px;
-    width: auto;
+    width: 100%;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -357,10 +220,16 @@ footer {
 
 .vetement-info {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.vetement-info br {
+    display: none;
 }
 
 .vetement-info h3 {
-    margin: 10px 0;
     font-size: 18px;
 }
 
@@ -369,12 +238,6 @@ footer {
     font-size: 14px;
 }
 
-.tinyMenu {
-    background-color: #d5b7bc;
-    height: 100px;
-    font-family: sans-serif;
-    position: relative;
-}
 
 /* Styles pour le bouton "Menu" */
 #menuButton {
@@ -389,152 +252,11 @@ footer {
     bottom : -28px;
 }
 
-.tinyMenu #menuButton {
-    display: block;
-}
-
-.tinyNav {
-    display: none;
-}
-
-.tinyNav.show-menu {
-    display: flex;
-    width: auto;
-    text-align: center;
-    height: auto;
-    overflow-x: auto;
-    box-shadow: 0px 1px 2px #CCC;
-    background-color: #d5b7bc;
-    color: floralwhite;
-    padding: 10px; 
-    position: absolute;
-    right: 5px;
-    margin-top: 100px;
-    z-index: 1;
-}
-
-/* Styles pour le bouton "Menu" au survol */
-#menuButton:hover {
-    text-decoration: underline;
-}
-.nav1selTiny {
-    font-style: sans-serif;
-    text-decoration: underline;
-    text-decoration: bold;
-    text-decoration-color: floralwhite;
-    font-size: auto;
-}
-.nav1Tiny {
-    font-style: sans-serif;
-    text-decoration: none;
-    text-decoration-color: floralwhite;
-    font-size: auto;
-}
-.nav1Tiny:hover {
-    text-decoration: underline;
-}
-.nav2selTiny {
-    font-style: sans-serif;
-    text-decoration: underline;
-    font-weight: bold;
-    text-decoration-color: floralwhite;
-    font-size: auto;
-}
-.nav2Tiny {
-    font-style: sans-serif;
-    text-decoration: none;
-    text-decoration-color: floralwhite;
-    font-size: auto;
-}
-.nav2Tiny:hover {
-    text-decoration: underline;
-}
-.nav3selTiny {
-    font-style: sans-serif;
-    text-decoration: underline;
-    font-weight: bold;
-    text-decoration-color: floralwhite;
-    font-size: auto;
-}
-.nav3Tiny {
-    font-style: sans-serif;
-    text-decoration-color: floralwhite;
-    font-size: auto;
-}
-.nav3Tiny:hover {
-    text-decoration: underline;
-}
-.nav4selTiny {
-    font-style: sans-serif;
-    text-decoration: underline;
-    font-weight: bold;
-    text-decoration-color: floralwhite;
-    font-size: auto;
-}
-.nav4Tiny {
-    font-style: sans-serif;
-    text-decoration: none;
-    text-decoration-color: floralwhite;
-    font-size: auto;
-}
-.nav4Tiny:hover {
-    text-decoration: underline;
-}
-.nav5selTiny {
-    font-style: sans-serif;
-    font-weight: bold;
-    text-decoration: underline;
-    text-decoration-color: floralwhite;
-    font-size: auto;
-}
-.nav5Tiny {
-    font-style: sans-serif;
-    text-decoration: none;
-    text-decoration-color: floralwhite;
-    font-size: auto;
-}
-.nav5Tiny:hover {
-    text-decoration: underline;
-}
-.nav6selTiny {
-    font-weight: bold;
-    font-style: sans-serif;
-    text-decoration: underline;
-    text-decoration-color: floralwhite;
-    font-size: auto;
-}
-.nav6Tiny {
-    font-style: sans-serif;
-    text-decoration: none;
-    text-decoration-color: floralwhite;
-    font-size: auto;
-}
-.nav6Tiny:hover {
-    text-decoration: underline;
-}
 .description-textHidden: {
     display: none;
     bottom: 0px;
 }
-.adresse-honfleurTiny {
-    top: 10px;
-    position: relative;
-    left: 175px;
-    width: 150px;
-    text-align: center;
-    align-content: center;
-    color: floralwhite;
-    z-index: 1;
-}
-.socialTiny {
-    position: relative;
-    top: -60px;
-    right: -175px;
-    width: 200px;
-    text-align: center;
-    color: floralwhite;
-    align-content: center;
-}
+
 .prev-btn {
     position: absolute;
     left: 1%;
@@ -543,6 +265,8 @@ footer {
     width: 30px;
     height: 30px;
     background: white;
+    border: 1px solid #d5b7bc;
+    color: #d5b7bc;
     border-radius: 100%;
     border-color: white;
     padding: 0;
@@ -558,21 +282,85 @@ footer {
     width: 30px;
     height: 30px;
     background: white;
-    border-color: white;
+    border: 1px solid #d5b7bc;
+    color: #d5b7bc;
     border-radius: 100%;
     align-content: center;
     padding: 0;
     margin: 0;
     overflow: hidden;
 }
-.prev-btn img {
-    width: 15px;
-    height: 15px;
-    position: relative;
-    
+
+@media (max-width: 1100px) {
+    .presentation-texte {
+        margin-top: 50px;
+    }
+    .BigNav {
+        width: 65%;
+    }
+    .BigNav ul li {
+        font-size: 14px;
+    }
+    .photoPres h2 {
+        font-size: 24px;
+    }
+    .nouveaux-vetements{
+        padding-top: 40px;
+    }
+    .filterBar__Filter {
+        width: 16.67%;
+    }
+    footer  {
+        flex-direction: column;
+        font-size: 14px;
+        align-items: center;
+        gap: 20px;
+        padding: 10px;
+    }
+    .description {
+        width: 80%
+    }
+    footer h5 {
+        font-size: 12px;
+    }
+    .contactCtn {
+        font-size: 14px;
+        gap: 5px;
+    }
+    .vetements-images {
+        grid-template-columns: 0.45fr 0.45fr;
+    }
+    .vetement-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+    .vetement-info h3{
+        font-size: 16px;
+    }
+    .vetement-info h4 {
+        font-size: 14px
+    }
+    .vetement-info p {
+        font-size: 12px;
+    }
 }
-.next-btn img {
-    position: relative;
-    width: 15px;
-    height: 15px;
+@media (max-width: 600px) {
+    .logoheader {
+        height: 40px;
+        width: auto;
+        padding: 5px 0 0 20px;
+    }
+    .photoPres h2 {
+        font-size: 24px;
+    }
+    .vetement-info h3{
+        font-size: 12px;
+    }
+    .vetement-info h4 {
+        font-size: 10px
+    }
+    .vetement-info p {
+        font-size: 8px;
+    }
 }
