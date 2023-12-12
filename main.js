@@ -149,7 +149,7 @@ function createVetementDiv(folderPath, imageNames) {
 function createAllVetementDivs() {
                 const container = document.getElementById('containerDivVetements'); // Remplacez 'container' par l'ID de votre conteneur HTML
                 const sourceFolder = 'vetements/';
-                const numFiles = 2; // Remplacez par le nombre de fichiers "accueilX" que vous avez
+                const numFiles = 31; // Remplacez par le nombre de fichiers "accueilX" que vous avez
       
                 for (let i = 1; i <= numFiles; i++) {
                     const folderPath = sourceFolder + 'accueil' + i + '/';
