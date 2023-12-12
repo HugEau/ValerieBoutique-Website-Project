@@ -32,7 +32,7 @@ async function prevImage(button) {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
 
     // Tant que l'image actuelle n'existe pas, continuez à revenir en arrière
-    while (!(await imageExists(window.location.origin + '/ValerieBoutique-Website-Project/' + folder + images[currentIndex]))) {
+    while (!(await imageExists(window.location.origin + '/' + folder + images[currentIndex]))) {
         currentIndex = (currentIndex - 1 + images.length) % images.length;
     }
 
@@ -53,7 +53,7 @@ async function nextImage(button) {
     currentIndex = (currentIndex + 1) % images.length;
 
     // Tant que l'image actuelle n'existe pas, continuez à avancer
-    while (!(await imageExists(window.location.origin + '/ValerieBoutique-Website-Project/' + folder + images[currentIndex]))) {
+    while (!(await imageExists(window.location.origin + '/' + folder + images[currentIndex]))) {
         currentIndex = (currentIndex + 1) % images.length;
     }
 
