@@ -1,10 +1,10 @@
 
-        <h3>Gilet en Laine</h3>
-        <p>Prix : 42 €</p>
-        <br>
-        <p>Tailles disponibles : 1, 2, 3</p>
-        <br>
-        <h4>Description :</h4>
-        <br>
-        <p>Over-Sized</p>
-    
+                <h3>Gilet</h3>
+                <p>Prix : 55 €</p>
+                <br>
+                <p>Tailles disponibles : Taille unique</p>
+                <br>
+                <h4>Description :</h4>
+                <br>
+                <p>Tailles du 38 au 46</p>
+            

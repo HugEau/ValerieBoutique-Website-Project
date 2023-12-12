@@ -1,10 +1,10 @@
 
-                <h3>Pantalon en velour</h3>
-                <p>Prix : 42 €</p>
+                <h3>Poncho</h3>
+                <p>Prix : 35 €</p>
                 <br>
                 <p>Tailles disponibles : Taille unique</p>
                 <br>
                 <h4>Description :</h4>
                 <br>
-                <p>Du 34 au 42</p>
+                <p>13 couleurs disponibles</p>
             
