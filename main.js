@@ -8,7 +8,7 @@ function imageExists(imageSrc) {
 }
 
 async function updateImage(imgElement, folder, images, index) {
-    const imageSrc = window.location.origin + '/ValerieBoutique-Website-Project/' + folder + images[index];
+    const imageSrc = window.location.origin + '/' + folder + images[index];
 
     // Vérifie si l'image existe avant de mettre à jour l'élément img
     const exists = await imageExists(imageSrc);
