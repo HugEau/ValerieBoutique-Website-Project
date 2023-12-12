@@ -207,13 +207,13 @@ function setupFilterButtons() {
         filterDivs('1');
     });
 
-    const coatsButton = document.getElementById('coatsButton');
-    coatsButton.addEventListener('click', function() {
-        filterDivs('2');
-    });
-
     const dressButton = document.getElementById('dressButton');
     dressButton.addEventListener('click', function() {
+        filterDivs('2');
+    });
+    
+    const coatsButton = document.getElementById('coatsButton');
+    coatsButton.addEventListener('click', function() {
         filterDivs('3');
     });
 
