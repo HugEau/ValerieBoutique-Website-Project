@@ -29,6 +29,8 @@
 }
 body {
     background-color: #e7e7e7;
+    min-width: 300px;
+    margin: auto;
 }
 
 li{
@@ -46,7 +48,7 @@ main {
 }
 .photoPres {
     width: 100%;
-    height: 110%;
+    margin: 50 0px;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -65,7 +67,8 @@ main {
 .photoPresImg {
     padding: 5px;
     background-color: #d5b7bc; 
-    height: 50%;
+    width: 90%;
+    max-width: 500px
 }
 
 .contactCtn {
@@ -305,9 +308,6 @@ footer {
     .photoPres h2 {
         font-size: 24px;
     }
-    .nouveaux-vetements{
-        padding-top: 40px;
-    }
     .filterBar__Filter {
         width: 16.67%;
     }
@@ -351,6 +351,19 @@ footer {
         height: 40px;
         width: auto;
         padding: 5px 0 0 20px;
+    }
+    .nouveaux-vetements{
+        margin-top: 10%;
+    }
+    .contactCtn {
+        flex-direction: column;
+        width: 50%;
+        gap: 15px;
+    }
+    .instagramCtn, .facebookCtn, .numCtn {
+        width: 100%;
+        height: 30px;
+        justify-content: center;
     }
     .photoPres h2 {
         font-size: 24px;
