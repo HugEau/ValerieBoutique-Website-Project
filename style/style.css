@@ -145,7 +145,6 @@ footer {
 
 .filterBar__filter {
 	border: 1px solid #d5b7bc;
-	color: black;
 	border-radius: 60px;
 	min-width: 100px;
 	height: 40px;
@@ -161,6 +160,7 @@ footer {
 .filterBar__filter p {
 	font-weight: 700;
 	font-size: 16px;
+    color: black;
 }
 
 .filterBar__filter:hover p {
