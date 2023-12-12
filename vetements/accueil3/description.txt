@@ -1,6 +1,6 @@
 
                 <h3>Robe pull</h3>
-                <p>Prix :  €</p>
+                <p>Prix : 45 €</p>
                 <br>
                 <p>Tailles disponibles : 1</p>
                 <br>
