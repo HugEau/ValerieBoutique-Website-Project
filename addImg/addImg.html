@@ -59,7 +59,7 @@
             <!-- Ajoutez d'autres options de catégorie selon vos besoins -->
         </select>
 
-        <label for="images">Images (3 maximum) :</label>
+        <label for="images">Images (8 maximum) :</label>
         <input type="file" id="images" accept="image/*" multiple required>
 
         <label for="description">Description :</label>
@@ -79,7 +79,7 @@
 
             const images = document.getElementById('images').files;
 
-            for (let i = 0; i < Math.min(images.length, 3); i++) {
+            for (let i = 0; i < Math.min(images.length, 8); i++) {
                 const imageUrl = URL.createObjectURL(images[i]);
                 const img = document.createElement('img');
                 img.src = imageUrl;
@@ -130,7 +130,7 @@
             zip.file('description.txt', descriptionBlob);
 
             // Téléverser les images
-            for (let i = 0; i < Math.min(images.length, 3); i++) {
+            for (let i = 0; i < Math.min(images.length, 8); i++) {
                 const imageUrl = URL.createObjectURL(images[i]);
                 const imageBlob = await fetch(imageUrl).then(res => res.blob());
                 zip.file(`accueil${i + 1}.jpg`, imageBlob);
