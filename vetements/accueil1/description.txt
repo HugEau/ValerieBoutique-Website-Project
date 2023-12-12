@@ -1,6 +1,6 @@
 
-        <h3>Manteau en Laine</h3>
-        <p>Prix : 120 €</p>
+        <h3>Gilet en Laine</h3>
+        <p>Prix : 42 €</p>
         <br>
         <p>Tailles disponibles : 1, 2, 3</p>
         <br>
