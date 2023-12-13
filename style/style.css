@@ -1,15 +1,96 @@
 .imgShower {
+    position: fixed;
     display: none;
+    z-index: 2;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
-    background-color: rgba(256, 256, 256, 0.3);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 .imgShowerCtn {
     display: flex;
+    background-color: #e7e7e7;
+    flex-direction: column;
+    height: 75%;
+    align-items: center;
+}
+.imgShowerCloser {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 5%;
+    margin-top: 10px;
+    background-color: #e7e7e7;
+}
+#imgShowerCloseBtn {
+    display: flex;
     align-items: center;
     justify-content: center;
+    border: none;
+    background-color: inherit;
+    width: 30px;
+    height: 100%;
+    padding: 0 40px;
+    cursor: pointer;
+}
+.imgShowerCtn__imgDesc {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    height: 80%;
+    padding: 30px;
+}
+.imgShowerCtn__img {
+    position: relative;
+    height: 100%;
+}
+.imgShowerCtn__img img {
+    height: 100%;
+}
+.showerPrev-btn, .showerNext-btn {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border: 1px solid #d5b7bc;
+    color: #d5b7bc;
+    border-radius: 100%;
+    border-color: white;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    align-content: center;
+    cursor: pointer;
+}
+.showerPrev-btn {
+    left: 1%;
+}
+.showerNext-btn {
+    right: 1%;
+}
+.imgShowerCtn__rightSide {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    background-color: inherit;
+}
+.imgShowerCtn__desc {
+    display: flex;
+    color: black;
+    flex-direction: column;
+    gap: 6px
+}
+.imgShowerCtn__desc br {
+    display: none;
+}
+.imgShowerCtn__desc h3 {
+    font-size: 30px;
 }
 .menu {
     display: flex;
@@ -204,6 +285,9 @@ footer {
     position: relative;
 }
 
+.vetement img {
+    cursor: pointer;
+}
 
 .vetements-images img {
     width: 100%;
@@ -254,21 +338,6 @@ footer {
     margin: 0;
     font-size: 14px;
 }
-
-
-/* Styles pour le bouton "Menu" */
-#menuButton {
-    display: none;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    float: right;
-    right: 36.5px;
-    bottom : -28px;
-}
-
 .description-textHidden: {
     display: none;
     bottom: 0px;
@@ -362,6 +431,23 @@ footer {
     }
 }
 @media (max-width: 600px) {
+    .imgShowerCtn__imgDesc {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+    .imgShowerCtn__img {
+        height: 60%;
+    }
+    .imgShowerCtn__rightSide {
+        height: 50%;
+        width: 100%;
+        background-color: #d5b7bc;
+    }
+    .imgShowerCtn__desc {
+        margin: 20px;
+        color: white;
+    }
     .logoheader {
         height: 40px;
         width: auto;

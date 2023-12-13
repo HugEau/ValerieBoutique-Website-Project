@@ -104,7 +104,7 @@ async function getCategoryIdInDiv(folderPath, vetementDiv) {
     }
 }
 // Fonction pour créer une div pour chaque article
-function createVetementDiv(folderPath, imageNames) {
+function createVetementDiv(folderPath, imageNames, i) {
     const vetementDiv = document.createElement('div');
     vetementDiv.classList.add('vetement');
     vetementDiv.setAttribute('data-folder', folderPath);
@@ -115,7 +115,9 @@ function createVetementDiv(folderPath, imageNames) {
                 // Créer l'image principale
                 const img = document.createElement('img');
                 img.src = folderPath + imageNames[0];
-                img.alt = 'Image 1';
+                img.alt = 'Image' + i;
+                img.id = img.alt;
+                let imgId = img.id
                 
                const prevBtn = document.createElement('button');
                 prevBtn.classList.add('prev-btn');
@@ -135,6 +137,53 @@ function createVetementDiv(folderPath, imageNames) {
                 vetementInfoDiv.classList.add('vetement-info');
                 vetementInfoDiv.innerHTML = descriptionText;
                 
+                // Créer le imgShower
+                img.addEventListener("click", () => {
+                    let imgShower = document.querySelector(".imgShower")
+                    imgShower.style.display = "flex"
+                    
+                    let imgShowerCloseBtn = document.getElementById("imgShowerCloseBtn")
+                    let imgShowerCtnImg = document.querySelector(".imgShowerCtn__img");
+                    let imgShowerDesc = document.querySelector(".imgShowerCtn__desc");
+                    
+                    let imgToSelect = document.getElementById(imgId);
+                    let imgToShowCreator = document.createElement("img");
+                    imgToShowCreator.src = imgToSelect.src
+                    imgToShowCreator.alt = imgToSelect.alt
+                           
+                    const showerPrevBtn = document.createElement('button');
+                    showerPrevBtn.classList.add('showerPrev-btn');
+                    showerPrevBtn.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
+                    
+                    const showerNextBtn = document.createElement('button');
+                    showerNextBtn.classList.add('showerNext-btn');
+                    showerNextBtn.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+                    
+                    imgShowerCtnImg.appendChild(imgToShowCreator);
+                    imgShowerCtnImg.appendChild(showerPrevBtn)
+                    imgShowerCtnImg.appendChild(showerNextBtn)
+                    imgShowerDesc.innerHTML = descriptionText;
+                    
+                    showerPrevBtn.addEventListener("click", () => {
+                        nextImage(showerPrevBtn)
+                    })
+                    
+                    showerNextBtn.addEventListener("click", () => {
+                        prevImage(showerNextBtn)
+                    })
+                                     
+                    imgShowerCloseBtn.addEventListener("click", () => {
+                    
+                        imgShower.style.display = "none";
+                        imgToShowCreator.remove();
+                        imgShowerDesc.innerHTML = "";
+                    })
+                    
+                    //récupération des données du fichier
+                    imgShowerCtnImg.dataset.folder = vetementDiv.dataset.folder
+                    imgShowerCtnImg.dataset.images = vetementDiv.dataset.images
+                })
+    
                 // Ajouter les éléments à la div principale
                 overlayDiv.appendChild(vetementInfoDiv);
                 vetementDiv.appendChild(img);
@@ -154,7 +203,7 @@ function createAllVetementDivs() {
                 for (let i = 1; i <= numFiles; i++) {
                     const folderPath = sourceFolder + 'accueil' + i + '/';
                     const imageNames = ['accueil1.jpg', 'accueil2.jpg', 'accueil3.jpg', 'accueil4.jpg', 'accueil5.jpg', 'accueil6.jpg', 'accueil7.jpg', 'accueil8.jpg']; // Remplacez par les noms de vos images
-                    const vetementDiv = createVetementDiv(folderPath, imageNames);
+                    const vetementDiv = createVetementDiv(folderPath, imageNames, i);
                     container.appendChild(vetementDiv);
                 }
                 
