@@ -54,6 +54,7 @@
 }
 .imgShowerCtn__img img {
     height: 100%;
+    max-width: 100%;
 }
 .showerPrev-btn, .showerNext-btn {
     position: absolute;
