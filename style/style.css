@@ -13,15 +13,17 @@
     background-color: #e7e7e7;
     flex-direction: column;
     height: 75%;
+    max-width: 80%;
     align-items: center;
 }
 .imgShowerCloser {
+    z-index: 3;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     width: 100%;
     height: 5%;
-    margin-top: 10px;
+    padding-top: 30px;
     background-color: #e7e7e7;
 }
 #imgShowerCloseBtn {
@@ -41,8 +43,9 @@
     flex-direction: row;
     align-items: center;
     gap: 20px;
-    height: 80%;
+    height: 95%;
     padding: 30px;
+    background-color: inherit;
 }
 .imgShowerCtn__img {
     position: relative;
@@ -428,23 +431,30 @@ footer {
         font-size: 12px;
     }
 }
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    .imgShowerCtn {
+        width: 100%
+    }
     .imgShowerCtn__imgDesc {
         flex-direction: column;
         width: 100%;
-        gap: 14px;
+        gap: 0px;
+        padding: 30px 0 0 0;
     }
     .imgShowerCtn__img {
         height: 60%;
     }
     .imgShowerCtn__rightSide {
-        height: 50%;
+        height: 40%;
         width: 100%;
-        background-color: #d5b7bc;
+        justify-content: center;
+        background-color: inherit;
     }
     .imgShowerCtn__desc {
-        margin: 20px;
+        padding:3px 20px;
+        background-color: #d5b7bc;
         color: white;
+        justify-content: center;
     }
     .logoheader {
         height: 40px;
