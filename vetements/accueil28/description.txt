@@ -2,7 +2,7 @@
                 <h3>Pantalon velours</h3>
                 <p>Prix : 42 €</p>
                 <br>
-                <p>Tailles disponibles : Taille unique</p>
+                <p>Tailles disponibles : Du 34 au 42</p>
                 <br>
                 <h4>Description :</h4>
                 <br>
