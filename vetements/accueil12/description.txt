@@ -2,7 +2,7 @@
                 <h3>Manteau en laine</h3>
                 <p>Prix : 120 €</p>
                 <br>
-                <p>Tailles disponibles : 3</p>
+                <p>Tailles disponibles : Oversized</p>
                 <br>
                 <h4>Description :</h4>
                 <br>
