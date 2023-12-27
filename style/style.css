@@ -307,7 +307,7 @@ footer {
 
 .vetements-images .vetement .vetement-overlay {
     position: absolute;
-    bottom: -5%; /* Ajustez la position verticale au milieu de l'image */
+    bottom: -3%; /* Ajustez la position verticale au milieu de l'image */
     left: -10px;
     background: #d5b7bc;
     color: #fff;
@@ -330,6 +330,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 2px;
+    height: 100%;
 }
 
 .vetement-info br {
