@@ -8,6 +8,7 @@
     align-items: center;
     background-color: rgb(225,225,225);
     z-index: 100000;
+    gap: 20px;
 }
 
 .pageLoader img {
