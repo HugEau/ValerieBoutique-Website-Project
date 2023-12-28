@@ -296,7 +296,7 @@ window.onload = function() {
     createAllVetementDivs();
 };
 
-window.addEventListener("DOMContentLoaded", (event) => {
+window.addEventListener("load", (event) => {
     let pageLoader = document.querySelector(".pageLoader")
     pageLoader.className = "pageLoaderFinished"
 })
