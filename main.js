@@ -200,7 +200,7 @@ function createAllVetementDivs() {
                 const sourceFolder = 'vetements/';
                 const numFiles = 36; // Remplacez par le nombre de fichiers "accueilX" que vous avez
       
-                for (let i = 1; i <= numFiles; i++) {
+                for (let i = numFiles; i >= 1; i--) {
                     const folderPath = sourceFolder + 'accueil' + i + '/';
                     const imageNames = ['accueil1.jpg', 'accueil2.jpg', 'accueil3.jpg', 'accueil4.jpg', 'accueil5.jpg', 'accueil6.jpg', 'accueil7.jpg', 'accueil8.jpg']; // Remplacez par les noms de vos images
                     const vetementDiv = createVetementDiv(folderPath, imageNames, i);
