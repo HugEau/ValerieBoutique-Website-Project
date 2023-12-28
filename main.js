@@ -295,3 +295,8 @@ window.onload = function() {
     setupFilterButtons();
     createAllVetementDivs();
 };
+
+window.addEventListener("load", (event) => {
+    let pageLoader = document.querySelector(".pageLoader")
+    pageLoader.className = "pageLoaderFinished"
+})
