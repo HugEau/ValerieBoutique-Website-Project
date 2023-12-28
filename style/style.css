@@ -6,7 +6,12 @@
     justify-content: center;
     align-items: center;
     background-color: rgb(225,225,225);
+    z-index: 100000;
+}
+
+.pageLoader img {
     animation: loader 3s infinite;
+    height: 20%;
 }
 
 @keyframes loader {
