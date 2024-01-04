@@ -103,6 +103,24 @@ async function getCategoryIdInDiv(folderPath, vetementDiv) {
         console.error('La catégorie n\'a pas pu être récupérée pour le dossier :', folderPath);
     }
 }
+
+async function getPromotion(folderPath) {
+    const categoryPath = folderPath + 'category.json';
+
+    try {
+        const response = await fetch(categoryPath);
+        const data = await response.json();
+
+        if (data && data.promotion) {
+            return data.promotion;
+        } else {
+            return null;
+        }
+    } catch (error) {
+        return null;
+    }
+}
+
 // Fonction pour créer une div pour chaque article
 function createVetementDiv(folderPath, imageNames, i) {
     const vetementDiv = document.createElement('div');
@@ -111,6 +129,40 @@ function createVetementDiv(folderPath, imageNames, i) {
     vetementDiv.setAttribute('data-images', imageNames.join(','));
 
       getCategoryIdInDiv(folderPath, vetementDiv);
+      
+    //à gérer : création de div si promotion HTML, CSS, JS
+    getPromotion(folderPath).then(promotion => {
+        if (promotion !== null) {
+            let originalPrice = null;
+            // Vérifier si la div de promotion existe déjà
+            let existingPromotionDiv = vetementDiv.querySelector('.vetements__promotion');
+    
+            if (!existingPromotionDiv) {
+                // Si elle n'existe pas, créez-la
+                let imgPromotionDiv = document.createElement("div");
+                imgPromotionDiv.className = "vetements__promotion";
+                
+                let imgPromotionText = document.createElement("h4");
+                imgPromotionText.innerHTML = "- " + promotion + "%";
+                
+                imgPromotionDiv.appendChild(imgPromotionText);
+                vetementDiv.appendChild(imgPromotionDiv);
+            }
+            let articlePrice = vetementDiv.querySelector('.prixArticle').innerHTML;
+                // Fonction pour extraire un nombre d'une chaîne
+                function extractNumber(str) {
+                    return Number(str.replace(/[^\d]/g, ''));
+                }
+                originalPrice = extractNumber(articlePrice);
+                console.log(originalPrice)
+                updatePriceInImgShower(vetementDiv, promotion, originalPrice)
+        } else {
+            let existingPromotionDiv = vetementDiv.querySelector('.imgShower__promotion');
+            if (existingPromotionDiv) {
+                existingPromotionDiv.remove()
+            }
+        }
+    })
     
                 // Créer l'image principale
                 const img = document.createElement('img');
@@ -178,6 +230,39 @@ function createVetementDiv(folderPath, imageNames, i) {
                         imgToShowCreator.remove();
                         imgShowerDesc.innerHTML = "";
                     })
+
+                    getPromotion(folderPath).then(promotion => {
+                        if (promotion !== null) {
+                            let originalPrice = null;
+                            // Vérifier si la div de promotion existe déjà
+                            let existingPromotionDiv = imgShowerCtnImg.querySelector('.imgShower__promotion');
+                    
+                            if (!existingPromotionDiv) {
+                                // Si elle n'existe pas, créez-la
+                                let imgShowerPromotionDiv = document.createElement("div");
+                                imgShowerPromotionDiv.className = "imgShower__promotion";
+                                
+                                let imgShowerPromotionText = document.createElement("h4");
+                                imgShowerPromotionText.innerHTML = "- " + promotion + "%";
+                                
+                                imgShowerPromotionDiv.appendChild(imgShowerPromotionText);
+                                imgShowerCtnImg.appendChild(imgShowerPromotionDiv);
+                            }
+                            let articlePrice = imgShowerDesc.querySelector('.prixArticle').innerHTML;
+                                // Fonction pour extraire un nombre d'une chaîne
+                                function extractNumber(str) {
+                                    return Number(str.replace(/[^\d]/g, ''));
+                                }
+                                originalPrice = extractNumber(articlePrice);
+                                console.log(originalPrice)
+                                updatePriceInImgShower(imgShowerDesc, promotion, originalPrice)
+                        } else {
+                            let existingPromotionDiv = imgShowerCtnImg.querySelector('.imgShower__promotion');
+                            if (existingPromotionDiv) {
+                                existingPromotionDiv.remove()
+                            }
+                        }
+                    })
                     
                     //récupération des données du fichier
                     imgShowerCtnImg.dataset.folder = vetementDiv.dataset.folder
@@ -198,7 +283,7 @@ function createVetementDiv(folderPath, imageNames, i) {
 function createAllVetementDivs() {
                 const container = document.getElementById('containerDivVetements'); // Remplacez 'container' par l'ID de votre conteneur HTML
                 const sourceFolder = 'vetements/';
-                const numFiles = 36; // Remplacez par le nombre de fichiers "accueilX" que vous avez
+                const numFiles = 39; // Remplacez par le nombre de fichiers "accueilX" que vous avez
       
                 for (let i = numFiles; i >= 1; i--) {
                     const folderPath = sourceFolder + 'accueil' + i + '/';
@@ -290,13 +375,60 @@ function setupFilterButtons() {
     });
 }
 
+// funtion that make appears promotions
+function setupPromotions() {
+    const vetementDivs = document.querySelectorAll('.vetement');
+
+    vetementDivs.forEach(vetementDiv => {
+        let dataPromotion = vetementDiv.getAttribute('data-promotion');
+        if (dataPromotion !== null) {
+            // Vérifier si la div vetements__promotion existe déjà
+            let existingPromotionDiv = vetementDiv.querySelector('.vetements__promotion');
+
+            if (!existingPromotionDiv) {
+                // Si elle n'existe pas, créez-la
+                let newPromotionDiv = document.createElement('div');
+                newPromotionDiv.className = 'vetements__promotion';
+
+                let newPromotionText = document.createElement('h4');
+                newPromotionText.innerHTML = '- ' + dataPromotion + '%';
+
+                newPromotionDiv.appendChild(newPromotionText);
+                vetementDiv.appendChild(newPromotionDiv);
+            }
+
+            let articlePrice = vetementDiv.querySelector('.prixArticle').innerHTML;
+            // Fonction pour extraire un nombre d'une chaîne
+            function extractNumber(str) {
+                return Number(str.replace(/[^\d]/g, ''));
+            }
+            let extractedNumber = extractNumber(articlePrice);
+            let promotionPrice = extractedNumber * (1 - dataPromotion / 100);
+
+            let articleNewPrice = vetementDiv.querySelector('.prixArticle');
+            articleNewPrice.innerHTML = 'Prix : <s>' + extractedNumber + ' €</s>  ' + promotionPrice + ' €';
+        } else {
+            console.log('no promotion');
+        }
+    });
+}
+
+function updatePriceInImgShower(imgShowerDesc, promotion, originalPrice) {
+    // Vérifier si l'élément de prix existe déjà
+    let existingPriceElement = imgShowerDesc.querySelector('.prixArticle');
+
+    if (existingPriceElement) {
+        let discountedPrice = originalPrice * (1 - promotion / 100);
+        existingPriceElement.innerHTML = "Prix : <s>" + originalPrice + " €</s> " + discountedPrice + " €";
+    }
+}
 
 window.onload = function() {
     setupFilterButtons();
-    createAllVetementDivs();
+    createAllVetementDivs()
 };
 
 window.addEventListener("load", (event) => {
-    let pageLoader = document.querySelector(".pageLoader")
-    pageLoader.className = "pageLoaderFinished"
+    let pageLoader = document.querySelector(".pageLoader");
+    pageLoader.className = "pageLoaderFinished";
 })

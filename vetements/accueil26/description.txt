@@ -1,10 +1,10 @@
 
-                <h3>Pantalon en velours</h3>
-                <p>Prix : 75 €</p>
+                <h3 class="nomArticle">Pantalon en velours</h3>
+                <p class="prixArticle">Prix : 75 €</p>
                 <br>
-                <p>Tailles disponibles : 1, 2, 3</p>
+                <p class="tailleArticle">Tailles disponibles : 1, 2, 3</p>
                 <br>
                 <h4>Description :</h4>
                 <br>
-                <p>Plusieurs coloris</p>
+                <p class="descArticle">Plusieurs coloris</p>
             

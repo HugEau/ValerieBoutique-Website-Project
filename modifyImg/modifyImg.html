@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Informations</title>
+    <style>
+        #preview img {
+            height: 300px;
+        }
+
+        table,
+        tr,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+            text-align: center;
+        }
+
+        #descriptionPreview {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Gestion des Informations</h1>
+    <label for="numberOfArticles">Nombre d'articles</label>
+    <input id="numberOfArticles" onchange="loadArticles()">
+    <br>
+    <br>
+
+    <label for="fileSelector">Sélectionner un fichier :</label>
+    <select id="fileSelector" onchange="loadJSON()">
+    </select>
+
+    <div id="preview"></div>
+    <br>
+    <table>
+        <tr>
+            <td>N° de Catégorie</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>Nom de Catégorie</td>
+            <td id="1">Tops et Pulls</td>
+            <td id="2">Robes et Tuniques</td>
+            <td id="3">Manteaux et Vestes</td>
+            <td id="4">Pantalons Jupes</td>
+            <td id="5">Combinaisons</td>
+            <td id="6">Couvre-Chefs</td>
+            <td id="7">Ceintures et Bijoux</td>
+            <td id="8">KarmaKiri</td>
+        </tr>
+    </table>
+    <div id="categoryList"></div>
+
+    <div id="descriptionPreview"></div>
+
+    <script>
+
+        async function loadArticles() {
+            let numberOfArticles = document.getElementById("numberOfArticles").value;
+            console.warn(numberOfArticles);
+            let select = document.getElementById("fileSelector");
+            const promises = [];
+
+            for (let i = 1; i <= numberOfArticles; i++) {
+                promises.push(loadDescription(i));
+            }
+
+            const descriptions = await Promise.all(promises);
+
+            for (let i = 1; i <= numberOfArticles; i++) {
+                let loadNewArticle = document.createElement("option");
+                loadNewArticle.value = "accueil" + i;
+                loadNewArticle.innerHTML = descriptions[i - 1];
+                select.appendChild(loadNewArticle);
+            }
+
+            loadJSON();
+        }
+
+        function loadDescription(articleNumber) {
+            const descriptionFileName = `../vetements/accueil${articleNumber}/description.txt`;
+
+            return fetch(descriptionFileName)
+                .then(response => response.text())
+                .then(description => {
+                    const nameMatch = description.match(/<h3>(.*?)<\/h3>/);
+                    const name = nameMatch ? nameMatch[1] : '';
+                    return `<h3>${name}</h3>`;
+                })
+                .catch(error => {
+                    console.error('Erreur lors du chargement du fichier description.txt:', error);
+                    return '';
+                });
+        }
+
+        function loadJSON() {
+            const selector = document.getElementById("fileSelector");
+            const fileName = selector.value;
+            const jsonFileName = `../vetements/${fileName}/category.json`;
+
+            fetch(jsonFileName)
+                .then(response => response.json())
+                .then(data => {
+                    displayData(data);
+                    displayPreview(fileName);
+                    // Pré-remplir les champs de modification avec les données du fichier description.txt
+                    prefillDescriptionFields();
+                    // Afficher la prévisualisation du fichier description.txt
+                    displayDescriptionPreview();
+                })
+                .catch(error => console.error('Erreur lors du chargement du fichier JSON:', error));
+        }
+
+        function displayData(data) {
+            const categoryListDiv = document.getElementById("categoryList");
+            categoryListDiv.innerHTML = "<h2>Informations</h2>";
+
+            // Afficher les informations existantes
+            categoryListDiv.innerHTML += "<h3>Informations actuelles :</h3>";
+            for (const key in data) {
+                if (data.hasOwnProperty(key)) {
+                    // Ajouter un champ de saisie pour chaque clé du fichier JSON
+                    categoryListDiv.innerHTML += `
+                        <label for="${key}">${key} :</label>
+                        <input type="text" id="${key}" name="${key}" value="${data[key]}"><br>`;
+                }
+            }
+
+            // Ajouter des champs de saisie pour les informations du fichier description.txt
+            const NameInput = document.getElementById("Name");
+            const priceInput = document.getElementById("price");
+            const sizesInput = document.getElementById("sizes");
+            const descriptionInput = document.getElementById("description");
+
+            categoryListDiv.innerHTML += `
+                <h3>Modifier les informations du fichier description.txt :</h3>
+                <label for="Name">Nom :</label>
+                <input type="text" id="Name" name="Name"><br>
+                <label for="price">Prix :</label>
+                <input type="text" id="price" name="price"><br>
+                <label for="sizes">Tailles disponibles :</label>
+                <input type="text" id="sizes" name="sizes"><br>
+                <label for="description">Description :</label>
+                <textarea id="description" name="description"></textarea><br>`;
+
+            // Ajouter un champ de saisie pour la promotion en pourcentage
+            categoryListDiv.innerHTML += `
+                <label for="promotionPercentage">Promotion en % :</label>
+                <input type="number" id="promotionPercentage" name="promotionPercentage" min="0" max="100">
+                <br>`;
+
+            // Ajouter un formulaire pour ajouter des informations
+            categoryListDiv.innerHTML += `
+                <h3>Modifier les informations :</h3>
+                <form id="updateForm">
+                    <button type="button" onclick="updateInformation()">Enregistrer</button>
+                </form>`;
+        }
+
+        function displayPreview(fileName) {
+            const previewDiv = document.getElementById("preview");
+            const imagePath = `../vetements/${fileName}/accueil1.jpg`;
+
+            // Afficher la prévisualisation de l'image
+            previewDiv.innerHTML = `<h2>Prévisualisation :</h2>
+                                    <img src="${imagePath}" alt="Prévisualisation">`;
+        }
+
+        function updateInformation() {
+    const updateForm = document.getElementById("updateForm");
+
+    // Créer un objet pour stocker les nouvelles informations
+    const newData = {};
+
+    // Parcourir tous les champs de saisie dans le formulaire
+    for (const input of updateForm.elements) {
+        if (input.tagName === 'INPUT' || input.tagName === 'TEXTAREA') {
+            newData[input.name] = input.value;
+        }
+    }
+
+    const fileName = document.getElementById("fileSelector").value;
+    const jsonFileName = `../vetements/${fileName}/category.json`;
+
+    // Mettre à jour le fichier JSON avec les nouvelles informations
+    // Mettre à jour le fichier JSON avec les nouvelles informations
+fetch(jsonFileName, {
+    method: 'POST',
+    body: JSON.stringify({ _method: 'PUT', ...newData }),
+    headers: {
+        'Content-Type': 'application/json'
+    }
+})
+        .then(response => response.json())
+        .then(updatedData => {
+            // Ajouter la promotion dans le JSON si elle n'existe pas déjà
+            if (newData.promotionPercentage !== undefined) {
+                updatedData.promotionPercentage = newData.promotionPercentage;
+            }
+
+            // Afficher les données mises à jour
+            displayData(updatedData);
+
+            // Mettre à jour le nom de catégorie dans la table
+            const categoryNumber = document.getElementById("fileSelector").value.slice(-1);
+            const categoryNameCell = document.getElementById(categoryNumber);
+            if (categoryNameCell) {
+                categoryNameCell.textContent = newData.categoryName || '';
+            }
+
+            alert("Informations mises à jour avec succès !");
+        })
+        .catch(error => console.error('Erreur lors de la mise à jour du fichier JSON:', error));
+}
+
+
+        // Fonction pour pré-remplir les champs du fichier description.txt dans le formulaire de modification
+function prefillDescriptionFields() {
+    const fileName = document.getElementById("fileSelector").value;
+    const articleNumber = fileName.match(/\d+/)[0];
+
+    const descriptionFileName = `../vetements/accueil${articleNumber}/description.txt`;
+
+    fetch(descriptionFileName)
+        .then(response => response.text())
+        .then(description => {
+            const nameMatch = description.match(/<h3>(.*?)<\/h3>/);
+            const name = nameMatch ? nameMatch[1] : '';
+            const priceMatch = description.match(/Prix : (.*?) €/);
+            const price = priceMatch ? priceMatch[1] : '';
+            const sizesMatch = description.match(/Tailles disponibles : (.*?)\s*<\/p>/);
+            const sizes = sizesMatch ? sizesMatch[1] : '';
+            const descriptionMatch = description.match(/<h4>Description<\/h4>(?:\s*<br>\s*)*<p>(.*?)<\/p>/);
+            const descriptionText = descriptionMatch ? descriptionMatch[1] : '';
+
+            // Remplir les champs du formulaire avec les informations du fichier description.txt
+            document.getElementById("Name").value = name;
+            document.getElementById("price").value = price;
+            document.getElementById("sizes").value = sizes;
+            document.getElementById("description").value = descriptionText;
+        })
+        .catch(error => {
+            console.error('Erreur lors du chargement du fichier description.txt pour pré-remplissage:', error);
+        });
+}
+
+
+
+
+
+        // Fonction pour afficher la prévisualisation du fichier description.txt
+        function displayDescriptionPreview() {
+            const fileName = document.getElementById("fileSelector").value;
+            const articleNumber = fileName.match(/\d+/)[0];
+
+            const descriptionPreviewDiv = document.getElementById("descriptionPreview");
+            const descriptionFileName = `../vetements/accueil${articleNumber}/description.txt`;
+
+            fetch(descriptionFileName)
+                .then(response => response.text())
+                .then(description => {
+                    descriptionPreviewDiv.innerHTML = "<h2>Prévisualisation du fichier description.txt :</h2>";
+                    descriptionPreviewDiv.innerHTML += description;
+                })
+                .catch(error => {
+                    console.error('Erreur lors du chargement du fichier description.txt pour prévisualisation:', error);
+                });
+        }
+    </script>
+
+</body>
+
+</html>

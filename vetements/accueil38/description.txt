@@ -1,0 +1,10 @@
+
+                <h3 class="nomArticle">Parka fourrée</h3>
+                <p class="prixArticle">Prix : 129 €</p>
+                <br>
+                <p class="tailleArticle">Tailles disponibles : S, M, L</p>
+                <br>
+                <h4>Description :</h4>
+                <br>
+                <p class="descArticle">Grande taille</p>
+            

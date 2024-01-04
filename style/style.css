@@ -58,6 +58,17 @@
     padding-top: 30px;
     background-color: #e7e7e7;
 }
+.imgShower__promotion {
+    position: absolute;
+    z-index: 1;
+    top: 5px;
+    right: 10px;
+    background-color: red;
+    padding: 12px;
+    color: #e7e7e7;
+    font-size: 25px;
+    border-radius: 15px;
+}
 #imgShowerCloseBtn {
     display: flex;
     align-items: center;
@@ -321,7 +332,17 @@ footer {
 .vetements-images .vetement {
     position: relative;
 }
-
+.vetements__promotion {
+    position: absolute;
+    z-index: 1;
+    top: 5px;
+    right: 10px;
+    background-color: red;
+    padding: 12px;
+    color: #e7e7e7;
+    font-size: 25px;
+    border-radius: 15px;
+}
 .vetement img {
     cursor: pointer;
 }
@@ -522,6 +543,10 @@ footer {
     }
     .vetement-info p {
         font-size: 8px;
+    }
+    .imgShower__promotion, .vetements__promotion {
+        font-size: 15px;
+        padding: 5px;
     }
 }
 @media (max-width:290px) {
