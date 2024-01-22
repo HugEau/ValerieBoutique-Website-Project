@@ -252,12 +252,20 @@ main {
 }
 footer {
     background-color: #d5b7bc;
-    display: flex;
-    flex-direction: row;
     padding: 40px;
-    font-size: 18px;
+    padding-bottom: 5px; 
     color : floralwhite;
     text-align: center;
+}
+footer a {
+    color: inherit;
+    font-weight: bold;
+    text-decoration: none
+}
+.footer {
+    display: flex;
+    flex-direction: row;
+        font-size: 18px;
 }
 .adresse {
     width: 33%;
@@ -267,6 +275,10 @@ footer {
 }
 .horaire {
     width: 33%
+}
+
+.legal {
+    font-size: 14px;
 }
 
 .nouveaux-vetements {
@@ -451,6 +463,14 @@ footer {
         width: 16.67%;
     }
     footer  {
+        flex-direction: column;
+        font-size: 10px;
+        align-items: center;
+        gap: 20px;
+        padding: 5px;
+        padding-bottom: 1px;
+    }
+    .footer {
         flex-direction: column;
         font-size: 14px;
         align-items: center;
